@@ -12,4 +12,10 @@ public func routes(_ router: Router) throws {
     router.get("todos", use: todoController.index)
     router.post("todos", use: todoController.create)
     router.delete("todos", Todo.parameter, use: todoController.delete)
+	
+	let acronymsController = AcronymsController()
+	try router.register(collection: acronymsController)
+	
+	let usersController = UserController()
+	try router.register(collection: usersController)
 }
