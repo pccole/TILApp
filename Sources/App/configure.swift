@@ -31,6 +31,7 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
 	migrations.add(model: Acronym.self, database: .sqlite)
 	migrations.add(model: User.self, database: .sqlite)
 	migrations.add(model: Category.self, database: .sqlite)
+	migrations.add(model: AcronymCategoryPivot.self, database: .sqlite)
     services.register(migrations)
 
 }
