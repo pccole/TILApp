@@ -15,10 +15,10 @@ final class Acronym: Codable {
 	}
 }
 
-extension Acronym: MySQLModel {}
-extension Acronym: Content {}
-extension Acronym: Migration {}
-extension Acronym: Parameter {}
+extension Acronym: MySQLModel {} // gives you basic id / database type
+extension Acronym: Content {} // Decode Model
+extension Acronym: Migration {} // Database
+extension Acronym: Parameter {} // JSON 
 
 extension Acronym {
 	var creator: Parent<Acronym, User> {

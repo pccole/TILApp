@@ -3,7 +3,9 @@ import Fluent
 
 struct AcronymsController: RouteCollection {
 	func boot(router: Router) throws {
-		let acronymsRouter = router.grouped("api", "acronyms")
+        // /api/acronyms
+        // registered in routes
+		let acronymsRouter = router.grouped("api", "acronyms") // very common pattern for creating REST Objects
 		acronymsRouter.get(use: getAllHandler)
 		acronymsRouter.get(Acronym.parameter, use: getHandler)
 		acronymsRouter.post(use: createHandler)
