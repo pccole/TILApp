@@ -47,7 +47,7 @@ struct AcronymsController: RouteCollection {
 	
 	func getCreatorHandler(_ req: Request) throws -> Future<User> {
 		return try req.parameters.next(Acronym.self).flatMap(to: User.self, { acronym in
-			return try acronym.creator.get(on: req)
+			return acronym.creator.get(on: req)
 		})
 	}
 	
@@ -68,9 +68,9 @@ struct AcronymsController: RouteCollection {
 		guard let searchTerm = req.query[String.self, at: "term"] else {
 			throw Abort.init(.badRequest, reason: "Missing search term in request")
 		}
-		return try Acronym.query(on: req).group(.or) { or in
-			try or.filter(\.short == searchTerm)
-			try or.filter(\.long == searchTerm)
+		return Acronym.query(on: req).group(.or) { or in
+			or.filter(\.short == searchTerm)
+			or.filter(\.long == searchTerm)
 		}.all()
 	}
 }

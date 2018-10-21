@@ -1,5 +1,6 @@
 import Foundation
 import Vapor
+import HTTP
 
 struct UserController: RouteCollection {
 	func boot(router: Router) throws {
@@ -30,3 +31,4 @@ struct UserController: RouteCollection {
 		}
 	}
 }
+
